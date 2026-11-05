@@ -1,0 +1,9 @@
+services:
+  - type: worker
+    name: ouo-bot
+    runtime: python
+    buildCommand: pip install -r requirements.txt && playwright install chromium && playwright install-deps chromium
+    startCommand: python app.py all --workers 2
+    envVars:
+      - key: OUO_WORKERS
+        value: 2
